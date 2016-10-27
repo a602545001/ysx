@@ -27,9 +27,9 @@ public class CommonController {
 		return new ModelAndView("common/tree");
 	}
 	
-	@RequestMapping(value = "/rotate",method = RequestMethod.GET)
-	public ModelAndView rotate(){
-		return new ModelAndView("common/rotate");
+	@RequestMapping(value = "/heart",method = RequestMethod.GET)
+	public ModelAndView heart(){
+		return new ModelAndView("common/heart");
 	}
 	
 	@RequestMapping(value = "/book",method = RequestMethod.GET)
@@ -40,6 +40,26 @@ public class CommonController {
 	@RequestMapping(value = "/login",method = RequestMethod.GET)
 	public ModelAndView login(){
 		return new ModelAndView("common/login");
+	}
+	
+	@RequestMapping(value = "/box",method = RequestMethod.GET)
+	public ModelAndView box(){
+		return new ModelAndView("common/box");
+	}
+	
+	@RequestMapping(value = "/collapsar",method = RequestMethod.GET)
+	public ModelAndView collapsar(){
+		return new ModelAndView("common/collapsar");
+	}
+	
+	@RequestMapping(value = "/picture",method = RequestMethod.GET)
+	public ModelAndView picture(){
+		return new ModelAndView("common/picture");
+	}
+	
+	@RequestMapping(value = "/rotate",method = RequestMethod.GET)
+	public ModelAndView rotate(){
+		return new ModelAndView("common/rotate");
 	}
 }
 
