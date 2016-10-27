@@ -19,8 +19,8 @@ fruitObj.prototype.init=function(){
     this.stp[i]=Math.random()*0.017+0.003;
     this.born(i);
   }
-  this.orange.src="/vendor/images/fruit.png";
-  this.blue.src="/vendor/images/blue.png";
+  this.orange.src="/vendor/images/fish/fruit.png";
+  this.blue.src="/vendor/images/fish/blue.png";
 }
 fruitObj.prototype.draw=function(){
   for(var i=0;i<this.num;i++){

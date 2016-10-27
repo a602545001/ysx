@@ -71,7 +71,6 @@ ul {
 	-moz-transition: all .5s ease-in-out;
 	-o-transition: all .5s ease-in-out;
 	-ms-transition: all .5s ease-in-out;
-	float: left;
 	transition: all .5s ease-in-out;
 	float: left;
 }

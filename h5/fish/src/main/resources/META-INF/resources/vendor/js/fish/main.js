@@ -54,7 +54,7 @@ function init(){
   
   can1.addEventListener("mousemove", onMouseMove, false);
 
-  bgPic.src = "/vendor/images/background.jpg";
+  bgPic.src = "/vendor/images/fish/background.jpg";
   canwidth = can1.width;
   canHeight = can1.height;
 
@@ -78,30 +78,30 @@ function init(){
 
   for(var i=0;i<8;i++){
     babyTail[i]=new Image();
-    babyTail[i].src="/vendor/images/babyTail"+i+".png";
+    babyTail[i].src="/vendor/images/fish/babyTail"+i+".png";
   }
   for(var i=0;i<2;i++){
     babyEye[i]=new Image();
-    babyEye[i].src="/vendor/images/babyEye"+i+".png";
+    babyEye[i].src="/vendor/images/fish/babyEye"+i+".png";
   }
   for(var i=0;i<20;i++){
     babyFade[i]=new Image();
-    babyFade[i].src="/vendor/images/babyFade"+i+".png";
+    babyFade[i].src="/vendor/images/fish/babyFade"+i+".png";
   }
 
   for(var i=0;i<8;i++){
     bigTail[i]=new Image();
-    bigTail[i].src="/vendor/images/bigTail"+i+".png";
+    bigTail[i].src="/vendor/images/fish/bigTail"+i+".png";
   }
   for(var i=0;i<2;i++){
     bigEye[i]=new Image();
-    bigEye[i].src="/vendor/images/bigEye"+i+".png";
+    bigEye[i].src="/vendor/images/fish/bigEye"+i+".png";
   }
   for(var i=0;i<8;i++){
     bigBody[i]=new Image();
-    bigBody[i].src="/vendor/images/bigSwim"+i+".png";
+    bigBody[i].src="/vendor/images/fish/bigSwim"+i+".png";
     bigBodyBlue[i]=new Image();
-    bigBodyBlue[i].src="/vendor/images/bigSwimBlue"+i+".png";
+    bigBodyBlue[i].src="/vendor/images/fish/bigSwimBlue"+i+".png";
   }
   ctx1.textAlign="center";
 }
