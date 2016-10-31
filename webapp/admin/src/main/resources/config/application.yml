@@ -1,0 +1,40 @@
+server:
+  port: 8090
+
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+  resources:
+    static-locations: file:d:/release/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/my_test
+    username: postgres
+    password: 111111
+    initialSize: 1
+    maxActive: 30
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    validationQuery: SELECT 1
+    filters: stat
+    removeAbandoned: true
+    removeAbandonedTimeout: 1800
+    logAbandoned: true
+  freemarker:
+    suffix: .html
+    exposeRequestAttributes: true
+    exposeSpringMacroHelpers: true
+    requestContextAttribute: requestContext
+    settings:
+      number_format: "0.##"
+      template_update_delay: 5
+      classic_compatible: true
+      auto_import: 

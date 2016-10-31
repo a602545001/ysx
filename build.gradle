@@ -1,84 +1,48 @@
 buildscript {
     repositories {
-        //���òֿ�
-        //maven { url "http://maven.oschina.net/content/groups/public/" }
         maven { url "http://repo.spring.io/libs-snapshot" }
-        //����gradle templates�ֿ�
         maven { url 'http://dl.bintray.com/cjstehno/public'}
-        //����gradle.git.properties
         maven { url "https://plugins.gradle.org/m2/"}
         jcenter()
     }
     
     dependencies {
-        //����gradle����ģ��
         classpath 'gradle-templates:gradle-templates:1.5'
-        
-        //���spring boot gradle���
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.3.3.RELEASE'
     }
 }
-
-//��׼����
 plugins {
-  //gradle���ɵ�sonar-scannerЧ��̫��
-  //id "org.sonarqube" version "2.0.1"
 	id "org.hidetake.ssh" version "2.1.1"
-  //id "com.gorylenko.gradle-git-properties" version "1.4.13"
 }
 
 apply plugin:'templates'
 
 allprojects {
     apply plugin: "java"
-    
     repositories {
-        //maven { url "http://maven.oschina.net/content/groups/public/" }
         maven { url "http://repo.spring.io/libs-snapshot" }
         mavenCentral() 
         jcenter()
     }
-    
-    configurations {
-        compile.exclude group: "ch.qos.logback"
-        compile.exclude group: "org.slf4j", module: "log4j-over-slf4j"
-        compile.exclude group: "org.slf4j", module: "jcl-over-slf4j"
-        compile.exclude group: "org.slf4j", module: "jul-over-slf4j"
-        compile.exclude group: "org.slf4j", module: "jul-to-slf4j"
-    }
 	
 }
-
 subprojects {
     apply plugin: 'application'
     apply plugin: 'spring-boot'
-    //apply plugin: 'java'
-    //eclipse web tool platform
     apply plugin: 'eclipse-wtp'
-
-    group = 'com.c3.travel'
-    version = travel_version
 
     eclipse {
         classpath {
             downloadSources = true
-            //defaultOutputDir = file("build/classes/main") //file(project.getProjectDir().getAbsolutePath() + "/build/classes/main")
-            //containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-            //containers "org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-${java_version}"
         }
     }
 
-	//
     bootRepackage.enabled = false
 
-    //mainClassName  = 'com.c3.Application'
-
-    //jdk�汾
     sourceCompatibility = java_version
     targetCompatibility = java_version
 
     ext {
-        //���ñ���
         compileJava.options.encoding = 'UTF-8'
         compileTestJava.options.encoding = 'UTF-8'
     }
@@ -86,110 +50,47 @@ subprojects {
     dependencies {
         
         compile("org.springframework.boot:spring-boot-starter")
-        //compile("org.springframework.boot:spring-boot-starter-aop")
         compile("org.springframework.boot:spring-boot-starter-data-jpa"){
           exclude group: 'org.apache.tomcat', module:'tomcat-jdbc'
         }
-        //compile("org.springframework.boot:spring-boot-devtools")
         compile("org.springframework.boot:spring-boot-starter-actuator")
         testCompile("org.springframework.boot:spring-boot-starter-test")
-
         compile("org.springframework:spring-context-support")
-
         compile "net.sf.ehcache:ehcache:${ehcache_version}"
-
-        //���ڴ���date��time��calendar�Ĺ��߰�
         compile "joda-time:joda-time:${joda_time_version}"
-        
-        //service provider interface for hibernate, joda time 
-        compile("org.jadira.usertype:usertype.core:${usertype_core_version}"){
-          exclude group: 'org.slf4j', module: 'slf4j-api'
-          exclude group: 'org.hibernate', module: 'hibernate-entitymanager'
-        }
-
-        //google java core library
         compile "com.google.guava:guava:${google_guava_version}"
-        
-        //�µ�����ע��,�ṩ@Inject��ע��
         compile "javax.inject:javax.inject:${javax_inject_version}"
-
         compile "org.apache.commons:commons-lang3:${commons_lang3_version}"
         compile "commons-lang:commons-lang:${commons_lang_version}"
         compile "commons-io:commons-io:${commons_io_version}"
         compile "commons-logging:commons-logging:${commons_logging_version}"
-        
-        
-        //�ļ��ϴ�������
         compile("commons-fileupload:commons-fileupload:${commons_fileupload_version}"){
           exclude group: 'commons-io', module: 'commons-io'
         }
-        
-        //���ڱ�������룬֧��DES��SHA��MD5��Base64��
         compile "commons-codec:commons-codec:${commons_codec_version}"
-        //compile "org.apache.commons:commons-csv:${commons_csv_version}"
-
-        //���￪Դ��ݿ����ӳ�
         compile "com.alibaba:druid:${druid_version}"
-       
-
-        //compile "mysql:mysql-connector-java:${mysql_version}"
-        
-        //postgresql��ݿ�����
         compile  "org.postgresql:postgresql:${postgresql_version}"
-
-        //compile "net.sourceforge.javacsv:javacsv:${javacsv_version}"
-        //compile("com.opencsv:opencsv:${opencsv_version}"){
-          //exclude group: 'org.apache.commons', module: 'commons-lang3'
-        //}
-        //provided("javax.servlet:javax.servlet-api")
     }
-    
-    
 }
-
-def webprojects = [project(':ysx-base-core'),project(':ysx-base-cache'), project(':fish-h5-webapp'),project(':ysx-base-activeMQ')]
-
+def webprojects = [project(':ysx-admin-webapp'),project(':ysx-fish-webapp'),project(':ysx-blog-webapp'),project(':ysx-base-core'),project(':ysx-base-cache'),project(':ysx-base-activeMQ')]
 configure(webprojects) { project ->
-  //���Զ�������������������
   apply plugin: 'war'
-  //apply plugin: "com.gorylenko.gradle-git-properties"
-  //apply plugin: 'org.hidetake.ssh'
-  
   springBoot {
       executable = true
   }
-
-  //bootRepackage.enabled = true
-
   configurations {
     providedRuntime
-    //all*.exclude group: '', module: 'servlet-api'
     all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-undertow'
   }
 
   dependencies {
-    //����ʹ��providedRuntime
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
-    //providedRuntime("org.springframework.boot:spring-boot-starter-undertow"){
-      //exclude group: 'javax.servlet', module: 'javax.servlet-api'
-    //}
     compile("org.springframework.boot:spring-boot-starter-freemarker"){
       exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
       exclude group: 'org.apache.tomcat.embed', module: 'tomcat-embed-el'
     }
     compile("org.springframework.boot:spring-boot-starter-web"){
     }
-
-    //compile "org.apache.shiro:shiro-spring:${shiro_version}"
-    //compile "org.apache.shiro:shiro-ehcache:${shiro_version}"
-
     compile "org.htmlparser:htmlparser:${htmlparser_version}"
-
-    //compile("com.baidu.ueditor:ueditor:${ueditor_version}"){
-      //exclude group: 'commons-fileupload', module: 'commons-fileupload'
-      //exclude group: 'commons-codec', module: 'commons-codec'
-    //}
-    //compile "ueditor:json:${ueditor_json_version}"
   }
 }
-

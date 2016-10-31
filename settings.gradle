@@ -4,11 +4,17 @@ rootProject.name = 'ysx'
 include 'ysx-base-core'
 project(':ysx-base-core').projectDir = new File(settingsDir, 'base/core')
 
-include 'fish-h5-webapp'
-project(':fish-h5-webapp').projectDir = new File(settingsDir, 'h5/fish')
-
 include 'ysx-base-cache'
 project(':ysx-base-cache').projectDir = new File(settingsDir, 'base/cache')
 
 include 'ysx-base-activeMQ'
 project(':ysx-base-activeMQ').projectDir = new File(settingsDir, 'base/activeMQ')
+
+include 'ysx-blog-webapp'
+project(':ysx-blog-webapp').projectDir = new File(settingsDir, 'webapp/blog')
+
+include 'ysx-fish-webapp'
+project(':ysx-fish-webapp').projectDir = new File(settingsDir, 'webapp/fish')
+
+include 'ysx-admin-webapp'
+project(':ysx-admin-webapp').projectDir = new File(settingsDir, 'webapp/admin')

@@ -1,7 +1,0 @@
-dependencies {
-    compile project(':ysx-base-core')
-    compile 'org.hibernate:hibernate-ehcache:4.3.11.Final'
-    compile 'net.sf.ehcache:ehcache-web:2.0.4'
-    testCompile "org.springframework.boot:spring-boot-starter-data-jpa"
-    testCompile "junit:junit:4.12"
-}
