@@ -72,7 +72,7 @@ subprojects {
         compile  "org.postgresql:postgresql:${postgresql_version}"
     }
 }
-def webprojects = [project(':ysx-admin-webapp'),project(':ysx-fish-webapp'),project(':ysx-blog-webapp'),project(':ysx-base-core'),project(':ysx-base-cache'),project(':ysx-base-activeMQ')]
+def webprojects = [project(':ysx-base-model'),project(':ysx-admin-webapp'),project(':ysx-fish-webapp'),project(':ysx-blog-webapp'),project(':ysx-base-core'),project(':ysx-base-cache'),project(':ysx-base-activeMQ')]
 configure(webprojects) { project ->
   apply plugin: 'war'
   springBoot {
