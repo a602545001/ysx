@@ -61,5 +61,10 @@ public class CommonController {
 	public ModelAndView rotate(){
 		return new ModelAndView("common/rotate");
 	}
+	
+	@RequestMapping(value = "/its",method = RequestMethod.GET)
+	public ModelAndView its(){
+		return new ModelAndView("common/test");
+	}
 }
 

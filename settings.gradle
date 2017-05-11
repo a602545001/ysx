@@ -1,4 +1,3 @@
-
 rootProject.name = 'ysx'
 
 include 'ysx-base-core'
@@ -18,3 +17,6 @@ project(':ysx-fish-webapp').projectDir = new File(settingsDir, 'webapp/fish')
 
 include 'ysx-admin-webapp'
 project(':ysx-admin-webapp').projectDir = new File(settingsDir, 'webapp/admin')
+
+include 'ysx-base-model'
+project(':ysx-base-model').projectDir = new File(settingsDir, 'base/model')

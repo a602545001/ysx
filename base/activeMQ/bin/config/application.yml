@@ -1,0 +1,28 @@
+server:
+  port: 8090
+
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+  resources:
+    static-locations: file:d:/release/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+  datasource:
+    url: jdbc:mysql://localhost:3306/ysx?serverTimezone=UTC
+    username: root
+    password: root
+    driverClassName: com.mysql.jdbc.Driver
+  jpa:
+    database: MYSQL
+    show-sql: true
+  freemarker:
+    suffix: .html
+    exposeRequestAttributes: true
+    exposeSpringMacroHelpers: true
+    requestContextAttribute: requestContext
+    settings:
+      number_format: "0.##"
+      template_update_delay: 5
+      classic_compatible: true
+      auto_import: 

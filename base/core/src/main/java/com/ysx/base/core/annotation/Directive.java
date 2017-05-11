@@ -8,13 +8,6 @@ import java.lang.annotation.Target;
 
 import org.springframework.stereotype.Component;
 
-/**
- * description: 自定义注解指�?
- *
- * @version 2016�?�?�?上午10:37:12
- * @see
- * modify content------------author------------date
- */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented

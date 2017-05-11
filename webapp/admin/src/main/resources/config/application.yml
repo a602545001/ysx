@@ -1,7 +1,29 @@
 server:
   port: 8090
-
+  ssl:
+    enabled: true
+    protocol: TLS
+    key-store: classpath:bmbserverca.keystore
+    key-store-password: 880716
+    trust-store: classpath:bmbserverca.keystore
+    trust-store-password: 880716
+rides:
+  enabled: false
 spring:
+#  redis:
+#    database: 0
+#    host: localhost
+#    port: 6379
+#    password: 
+#    max-active: 8
+#    pool:
+#      max-wait: -1  
+#      max-idle: 8  
+#      min-idle: 0  
+#    timeout: 0 
+#    expireEnabled: false
+#    expireTime: 15
+#    expireUnit: SECONDS
   mvc:
     view:
       prefix: /
@@ -9,25 +31,13 @@ spring:
   resources:
     static-locations: file:d:/release/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
   datasource:
-    driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/my_test
-    username: postgres
-    password: 111111
-    initialSize: 1
-    maxActive: 30
-    minIdle: 1
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    maxPoolPreparedStatementPerConnectionSize: 20
-    validationQuery: SELECT 1
-    filters: stat
-    removeAbandoned: true
-    removeAbandonedTimeout: 1800
-    logAbandoned: true
+    url: jdbc:mysql://localhost:3306/ysx?serverTimezone=UTC
+    username: root
+    password: root
+    driverClassName: com.mysql.jdbc.Driver
+  jpa:
+    database: MYSQL
+    show-sql: true
   freemarker:
     suffix: .html
     exposeRequestAttributes: true

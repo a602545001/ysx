@@ -60,6 +60,9 @@
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.htmlparser/htmlparser/2.1/c752e5984b7767533cbd3fdffa48cecb52fa226c/htmlparser-2.1.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.archetypes/jersey-quickstart-webapp/2.25.1/8c02e69c9131813d8260f1b51a6aa5070a595b2f/jersey-quickstart-webapp-2.25.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/1.3.3.RELEASE/641cc375499d444e4efbc1801902260daa79758d/spring-boot-1.3.3.RELEASE.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>

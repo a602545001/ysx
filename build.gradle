@@ -38,7 +38,9 @@ subprojects {
     }
 
     bootRepackage.enabled = false
-
+    
+	mainClassName = mainClassName
+	
     sourceCompatibility = java_version
     targetCompatibility = java_version
 

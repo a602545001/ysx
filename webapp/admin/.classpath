@@ -4,7 +4,8 @@
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="src/main/resources"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7/"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
+	<classpathentry kind="src" path="/ysx-base-model"/>
 	<classpathentry kind="src" path="/ysx-base-core"/>
 	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter/1.3.3.RELEASE/d205c7b607ec58295ef8e5b2fddfcb756b9cb3bf/spring-boot-starter-1.3.3.RELEASE-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter/1.3.3.RELEASE/e4a71ce6ae8e42a7535dd9f1a39f91d36c538f28/spring-boot-starter-1.3.3.RELEASE.jar">
 		<attributes>
@@ -101,7 +102,17 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.21/f285ac123f201fb4b028bac556928d7cf527ef48/slf4j-api-1.7.21-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.21/139535a69a4239db087de9bab0bee568bf8e0b70/slf4j-api-1.7.21.jar">
+	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/6.0.5/6d5546956712e1dd8fb8554071c583c831708a2a/mysql-connector-java-6.0.5-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/6.0.5/9d8df5a1f3273110f2a9ad304961bdd03d696d86/mysql-connector-java-6.0.5.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.1/e88788f756edecae963417e07b690e88aaaa7c15/core-3.2.1-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.1/2287494d4f5f9f3a9a2bb6980e3f32053721b315/core-3.2.1.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-redis/1.4.2.RELEASE/402bcb23ee0e97a4cc5008f65d2f540443633fec/spring-boot-starter-redis-1.4.2.RELEASE-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-redis/1.4.2.RELEASE/54566376aa9af7a779b51b1ad45c6781e54a1a3d/spring-boot-starter-redis-1.4.2.RELEASE.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
@@ -186,6 +197,11 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.16/974c5dd98f38036bd98b3a8f7bf00ee0d91adbdd/slf4j-api-1.7.16-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.16/3a6274f658487d5bfff9af3862beff6da1e7fd52/slf4j-api-1.7.16.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
 	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.freemarker/freemarker/2.3.23/51b98b3e60f2d78624137437f34a3e70ab5d55ec/freemarker-2.3.23-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.freemarker/freemarker/2.3.23/cd143cd8c02a9f838e3cb75a6dfe133750437f6d/freemarker-2.3.23.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
@@ -212,6 +228,21 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.htmlparser/htmllexer/2.1/4053d36b5890ddc2f49a873e85b97b93f784ef76/htmllexer-2.1-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.htmlparser/htmllexer/2.1/2ebf2c073e649b7e674cddd0558ff102a486402f/htmllexer-2.1.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.archetypes/jersey-quickstart-webapp/2.25.1/8208b95ba6489684ed64c3144dd1c798c4bfac36/jersey-quickstart-webapp-2.25.1-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.archetypes/jersey-quickstart-webapp/2.25.1/8c02e69c9131813d8260f1b51a6aa5070a595b2f/jersey-quickstart-webapp-2.25.1.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-redis/1.6.4.RELEASE/5dbf30921126f4e8206aab30a53b70f0fdc3bd3f/spring-data-redis-1.6.4.RELEASE-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-redis/1.6.4.RELEASE/8ef273d37f463ac2b44daa0a5e7484023746557e/spring-data-redis-1.6.4.RELEASE.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/redis.clients/jedis/2.7.3/92e002a6186207ae20f28df36d29eb016a0e87e6/jedis-2.7.3-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/redis.clients/jedis/2.7.3/5f6b152b43424aed4ace4e545879cf17945d1daa/jedis-2.7.3.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
@@ -272,11 +303,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/1.7.16/284459a82b70a3650489ca44ee01e5fad7d62319/jul-to-slf4j-1.7.16-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/1.7.16/2d5b546c5557dcbf08c3a381d7dc9bd275a602c1/jul-to-slf4j-1.7.16.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.slf4j/log4j-over-slf4j/1.7.16/ebedc4e50e0eeaa6e6b4ad5f1b69089099301cc6/log4j-over-slf4j-1.7.16-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.slf4j/log4j-over-slf4j/1.7.16/c5922f37c8a5e4377cfb543c549f10e73d72ede0/log4j-over-slf4j-1.7.16.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
@@ -371,12 +397,17 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.1/611a57d836e2c320d59f9851d4ad587f3c8472e/objenesis-2.1-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.1/87c0ea803b69252868d09308b4618f766f135a96/objenesis-2.1.jar">
+	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.2.5.RELEASE/f9ef365922a13a7054ee7b27ea25a6992c42941c/spring-oxm-4.2.5.RELEASE-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.2.5.RELEASE/a557a238342412a2c8a238dc01fb735565d1d871/spring-oxm-4.2.5.RELEASE.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.5/a920a1f85c501420332e867740ea5ae648655da7/logback-core-1.1.5-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.5/16722afde74444716e299bee1f60aec9f6d1f0dc/logback-core-1.1.5.jar">
+	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-pool2/2.4.2/2c9dcae4975caff05a627b99fae76e6fef2a3a0e/commons-pool2-2.4.2-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-pool2/2.4.2/e5f4f28f19d57716fbc3989d7a357ebf1e454fea/commons-pool2-2.4.2.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.1/611a57d836e2c320d59f9851d4ad587f3c8472e/objenesis-2.1-sources.jar" kind="lib" path="C:/Users/hp/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.1/87c0ea803b69252868d09308b4618f766f135a96/objenesis-2.1.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>

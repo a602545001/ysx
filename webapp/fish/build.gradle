@@ -8,4 +8,11 @@ mainClassName = 'com.ysx.fish.ui.Application'
 dependencies {
 	compile 'com.google.zxing:core:3.2.1'
 	compile project(":ysx-base-core")
+	compile("org.glassfish.jersey.core:jersey-client:2.25.1")
+	compile("org.glassfish.jersey.core:jersey-server:2.25.1")
+	compile("org.apache.cxf:cxf-rt-frontend-jaxws:3.1.6")
+	compile("org.apache.cxf:cxf-rt-frontend-jaxrs:3.1.6")
+    compile("org.apache.cxf:cxf-rt-transports-http:3.1.6")
+    compile("com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.4.1")
+    compile("net.sf.json-lib:json-lib:2.4")
 }

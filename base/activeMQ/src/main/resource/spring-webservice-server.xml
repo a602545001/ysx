@@ -1,0 +1,112 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:sec="http://cxf.apache.org/configuration/security" xmlns:http="http://cxf.apache.org/transports/http/configuration"
+	xmlns:httpj="http://cxf.apache.org/transports/http-jetty/configuration"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd 
+	http://cxf.apache.org/configuration/security  		      
+    http://cxf.apache.org/schemas/configuration/security.xsd
+    http://cxf.apache.org/transports/http/configuration
+    http://cxf.apache.org/schemas/configuration/http-conf.xsd
+    http://cxf.apache.org/transports/http-jetty/configuration
+    http://cxf.apache.org/schemas/configuration/http-jetty.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	
+	<bean id="loggingFeature" class="org.apache.cxf.feature.LoggingFeature" >
+		<property name="prettyLogging" value="true"/>
+	</bean>
+
+	<bean id="UserServiceImpl" class="test.ws.UserServiceImpl">
+		<property name="serverRemark" value="HTTP"></property>
+	</bean>
+	<bean id="UserServiceImpl_SSL_ONE_WAY_AUTH" class="test.ws.UserServiceImpl">
+		<property name="serverRemark" value="SSL_ONE_WAY_AUTH"></property>
+	</bean>
+	<bean id="UserServiceImpl_SSL_TWO_WAY_AUTH" class="test.ws.UserServiceImpl">
+		<property name="serverRemark" value="_SSL_TWO_WAY_AUTH"></property>
+	</bean>
+	<jaxws:endpoint id="UserServiceWS" implementor="#UserServiceImpl"
+		address="http://127.0.0.1:8014/services/UserService" publish="false">
+		<jaxws:features>  
+			<ref bean="loggingFeature" /> 
+		</jaxws:features>
+	</jaxws:endpoint>
+
+	<jaxws:endpoint id="UserServiceWS_SSL_ONE_WAY_AUTH"
+		implementor="#UserServiceImpl_SSL_ONE_WAY_AUTH"
+		address="https://127.0.0.1:8015/services/UserService_SSL_ONE_WAY_AUTH"
+		publish="false">
+		<jaxws:features>  
+			<ref bean="loggingFeature" /> 
+		</jaxws:features>
+	</jaxws:endpoint>
+
+	<jaxws:endpoint id="UserServiceWS_SSL_TWO_WAY_AUTH"
+		implementor="#UserServiceImpl_SSL_TWO_WAY_AUTH"
+		address="https://127.0.0.1:8016/services/UserService_SSL_TWO_WAY_AUTH"
+		publish="false">
+		<jaxws:features>  
+			<ref bean="loggingFeature" /> 
+		</jaxws:features>
+	</jaxws:endpoint>
+
+	<httpj:engine-factory>
+		<httpj:engine port="8015">
+			<httpj:tlsServerParameters>
+				<sec:keyManagers keyPassword="serverkeypass">
+					<sec:keyStore
+						file="D:/svn/CRM3_P3_merge_si/testsrc/test/ws/ssl/resource/cert_one_way_auth/server.keystore"
+						password="serverstorepass" type="JKS" />
+				</sec:keyManagers>
+				<sec:cipherSuitesFilter>
+					<!-- these filters ensure that a ciphersuite with export-suitable or 
+						null encryption is used, but exclude anonymous Diffie-Hellman key change 
+						as this is vulnerable to man-in-the-middle attacks -->
+					<sec:include>.*_EXPORT_.*</sec:include>
+					<sec:include>.*_EXPORT1024_.*</sec:include>
+					<sec:include>.*_WITH_DES_.*</sec:include>
+					<sec:include>.*_WITH_AES_.*</sec:include>
+					<sec:include>.*_WITH_NULL_.*</sec:include>
+					<sec:exclude>.*_DH_anon_.*</sec:exclude>
+				</sec:cipherSuitesFilter>
+				<sec:clientAuthentication want="false"
+					required="false" />
+			</httpj:tlsServerParameters>
+		</httpj:engine>
+
+		<httpj:engine port="8016">
+			<httpj:tlsServerParameters>
+				<sec:keyManagers keyPassword="serverkeypass">
+					<sec:keyStore
+						file="D:/svn/CRM3_P3_merge_si/testsrc/test/ws/ssl/resource/cert_two_way_auth/server.keystore"
+						password="serverstorepass" type="JKS" />
+				</sec:keyManagers>
+				<sec:trustManagers>
+					<sec:keyStore
+						file="D:/svn/CRM3_P3_merge_si/testsrc/test/ws/ssl/resource/cert_two_way_auth/server.keystore"
+						password="serverstorepass" type="JKS" />
+				</sec:trustManagers>
+				<sec:cipherSuitesFilter>
+					<!-- these filters ensure that a ciphersuite with export-suitable or 
+						null encryption is used, but exclude anonymous Diffie-Hellman key change 
+						as this is vulnerable to man-in-the-middle attacks -->
+					<sec:include>.*_EXPORT_.*</sec:include>
+					<sec:include>.*_EXPORT1024_.*</sec:include>
+					<sec:include>.*_WITH_DES_.*</sec:include>
+					<sec:include>.*_WITH_AES_.*</sec:include>
+					<sec:include>.*_WITH_NULL_.*</sec:include>
+					<sec:exclude>.*_DH_anon_.*</sec:exclude>
+				</sec:cipherSuitesFilter>
+				<sec:clientAuthentication want="true"
+					required="true" />
+			</httpj:tlsServerParameters>
+		</httpj:engine>
+	</httpj:engine-factory>
+
+
+
+
+</beans>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- START SNIPPET: beans -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:sec="http://cxf.apache.org/configuration/security" xmlns:http="http://cxf.apache.org/transports/http/configuration"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+	http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+	http://cxf.apache.org/configuration/security http://cxf.apache.org/schemas/configuration/security.xsd
+	http://cxf.apache.org/transports/http/configuration http://cxf.apache.org/schemas/configuration/http-conf.xsd"
+	default-lazy-init="true">
+
+	<bean id="loggingFeature" class="org.apache.cxf.feature.LoggingFeature">
+		<property name="prettyLogging" value="true" />
+	</bean>
+
+	<bean id="UserService" class="test.ws.UserService" factory-bean="UserServiceClientFactory"
+		factory-method="create" />
+
+	<bean id="UserServiceClientFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="test.ws.UserService" />
+		<property name="address" value="http://127.0.0.1:8014/services/UserService" />
+		<property name="features">
+			<list>
+				<ref bean="loggingFeature" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="UserService_SSL_ONE_WAY_AUTH" class="test.ws.UserService"
+		factory-bean="UserServiceClientFactory_SSL_ONE_WAY_AUTH"
+		factory-method="create" />
+
+	<bean id="UserServiceClientFactory_SSL_ONE_WAY_AUTH" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="test.ws.UserService" />
+		<property name="address"
+			value="https://127.0.0.1:8015/services/UserService_SSL_ONE_WAY_AUTH" />
+		<property name="features">
+			<list>
+				<ref bean="loggingFeature" />
+			</list>
+		</property>
+	</bean>
+
+	<http:conduit
+		name="https://127.0.0.1:8015/services/UserService_SSL_ONE_WAY_AUTH">
+		<http:tlsClientParameters disableCNCheck="true">
+			<sec:trustManagers>
+				<sec:keyStore
+					file="D:\svn\CRM3_P3_merge_si\testsrc\test\ws\ssl\resource\cert_one_way_auth\client.keystore"
+					password="clientstorepass" type="JKS" />
+			</sec:trustManagers>
+			<sec:cipherSuitesFilter>
+				<!-- these filters ensure that a ciphersuite with export-suitable or 
+					null encryption is used, but exclude anonymous Diffie-Hellman key change 
+					as this is vulnerable to man-in-the-middle attacks -->
+				<sec:include>.*_EXPORT_.*</sec:include>
+				<sec:include>.*_EXPORT1024_.*</sec:include>
+				<sec:include>.*_WITH_DES_.*</sec:include>
+				<sec:include>.*_WITH_AES_.*</sec:include>
+				<sec:include>.*_WITH_NULL_.*</sec:include>
+				<sec:exclude>.*_DH_anon_.*</sec:exclude>
+			</sec:cipherSuitesFilter>
+		</http:tlsClientParameters>
+	</http:conduit>
+
+	<bean id="UserService_SSL_TWO_WAY_AUTH" class="test.ws.UserService"
+		factory-bean="UserServiceClientFactory_SSL_TWO_WAY_AUTH"
+		factory-method="create" />
+
+	<bean id="UserServiceClientFactory_SSL_TWO_WAY_AUTH" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="test.ws.UserService" />
+		<property name="address"
+			value="https://127.0.0.1:8016/services/UserService_SSL_TWO_WAY_AUTH" />
+		<property name="features">
+			<list>
+				<ref bean="loggingFeature" />
+			</list>
+		</property>
+	</bean>
+
+	<http:conduit
+		name="https://127.0.0.1:8016/services/UserService_SSL_TWO_WAY_AUTH">
+		<http:tlsClientParameters disableCNCheck="true">
+			<sec:keyManagers keyPassword="clientkeypass">
+				<sec:keyStore
+					file="D:\svn\CRM3_P3_merge_si\testsrc\test\ws\ssl\resource\cert_two_way_auth\client.keystore"
+					password="clientstorepass" type="JKS" />
+			</sec:keyManagers>
+			<sec:trustManagers>
+				<sec:keyStore
+					file="D:\svn\CRM3_P3_merge_si\testsrc\test\ws\ssl\resource\cert_two_way_auth\client.keystore"
+					password="clientstorepass" type="JKS" />
+			</sec:trustManagers>
+			<sec:cipherSuitesFilter>
+				<!-- these filters ensure that a ciphersuite with export-suitable or 
+					null encryption is used, but exclude anonymous Diffie-Hellman key change 
+					as this is vulnerable to man-in-the-middle attacks -->
+				<sec:include>.*_EXPORT_.*</sec:include>
+				<sec:include>.*_EXPORT1024_.*</sec:include>
+				<sec:include>.*_WITH_DES_.*</sec:include>
+				<sec:include>.*_WITH_AES_.*</sec:include>
+				<sec:include>.*_WITH_NULL_.*</sec:include>
+				<sec:exclude>.*_DH_anon_.*</sec:exclude>
+			</sec:cipherSuitesFilter>
+		</http:tlsClientParameters>
+	</http:conduit>
+</beans>

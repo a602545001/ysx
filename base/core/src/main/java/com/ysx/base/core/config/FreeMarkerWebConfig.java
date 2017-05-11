@@ -22,14 +22,6 @@ import com.google.common.collect.Maps;
 import com.ysx.base.core.annotation.Directive;
 import com.ysx.base.core.freemaker.AbstractDirective;
 
-/**
- * description: Freemaker配置，核心是parseDirectiveBeanToFtlVariables
- * 方法，将自定义的指定转换为freemaker模板识别的指�?
- * 
- * @version 2016�?�?1�?下午4:10:53
- * @see
- * modify content------------author------------date
- */
 @Configuration
 @ConditionalOnClass(Servlet.class)
 @ConditionalOnWebApplication
