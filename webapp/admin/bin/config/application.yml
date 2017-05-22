@@ -1,7 +1,7 @@
 server:
-  port: 8090
+  port: 8080
   ssl:
-    enabled: true
+    enabled: false
     protocol: TLS
     key-store: classpath:bmbserverca.keystore
     key-store-password: 880716
@@ -30,14 +30,29 @@ spring:
       suffix: .html
   resources:
     static-locations: file:d:/release/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
-  datasource:
-    url: jdbc:mysql://localhost:3306/ysx?serverTimezone=UTC
-    username: root
-    password: root
-    driverClassName: com.mysql.jdbc.Driver
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/ysx?serverTimezone=UTC
+#    username: root
+#    password: root
+#    driverClassName: com.mysql.jdbc.Driver
+#  jpa:
+#    database: MYSQL
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update  
+#      dialect: org.hibernate.dialect.MySQL5Dialect 
+  datasource: 
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/my_test
+    username: postgres
+    password: 111111
   jpa:
-    database: MYSQL
-    show-sql: true
+    database_platform: org.hibernate.dialect.PostgreSQL9Dialect
+    database: POSTGRESQL
+    show_sql: true
+    hibernate: 
+      ddl_auto: update
+      naming_strategy: org.hibernate.cfg.EJB3NamingStrategy
   freemarker:
     suffix: .html
     exposeRequestAttributes: true
