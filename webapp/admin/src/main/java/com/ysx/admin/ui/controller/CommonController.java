@@ -35,6 +35,11 @@ public class CommonController {
 		return new ModelAndView("common/edit","blog",bog);
 	}
 	
+	@RequestMapping(value = "/index")
+	public String index(){
+		return "index";
+	}
+	
 	@ResponseBody
 	@RequestMapping(value = "/date",method = RequestMethod.GET)
 	public String test(){
